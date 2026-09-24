@@ -74,8 +74,6 @@ Verify:
 docker network ls
 ```
 
----
-
 #### 5. Required Containers
 
 Create at least five containers:
@@ -97,8 +95,6 @@ CLOCK_OFFSET=-8
 CLIENT_ID=client1
 ```
 
----
-
 ### Part B — Project Structure
 
 Create the following project structure:
@@ -116,8 +112,6 @@ clock-synchronization/
     ├── Dockerfile
     └── client.py
 ```
-
----
 
 ### Part C — Master / Time Server
 
@@ -139,7 +133,6 @@ Client → Master: TIME_REQUEST
 Master → Client: MASTER_TIME = 12:00:15.300
 ```
 
-
 ### Part D — Client
 
 #### 7. Client Responsibilities
@@ -156,7 +149,6 @@ Each client must:
 8. Calculate the corrected clock.
 9. Display the synchronization result.
 
----
 
 ### Part E — Cristian's Algorithm
 
@@ -245,8 +237,6 @@ Master Time + Delay
 = 10:00:00.375
 ```
 
----
-
 ### Part G — Docker Compose
 
 Create a `docker-compose.yml` that contains:
@@ -277,8 +267,6 @@ Verify the network:
 docker network inspect clock-net
 ```
 
----
-
 ### Part I — Required Output
 
 Each client should display output similar to:
@@ -301,8 +289,6 @@ Final Error     : 0 ms
 ```
 
 The exact values will depend on the implementation and network conditions.
-
----
 
 ### Part J — Network Delay Experiments
 
@@ -334,8 +320,6 @@ For every experiment, record:
 - Corrected clock
 - Final synchronization error
 
----
-
 ### Part K — Results Table
 
 Submit a table similar to:
@@ -349,7 +333,6 @@ Submit a table similar to:
 | 2 | Client 1 | | | | | |
 | 2 | Client 2 | | | | | |
 
----
 
 ### Part L — Questions to Answer
 
@@ -363,5 +346,3 @@ Submit a table similar to:
 8. What is the difference between the client's initial logical clock and its corrected logical clock?
 9. How does the number of clients affect the master?
 10. What are the limitations of Cristian's algorithm in a real distributed system?
-
--
