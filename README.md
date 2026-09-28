@@ -42,8 +42,16 @@
 |             Course Start             |  22 - Jun - 2026    |      Status     | 
 |--------------------------------------|:-------------------:|:---------------:|
 | CA#1A: Quiz #1                       |  14 - Jul - 2026    |                 |
-| Lab Evaluation#1                     |  16 - Jul - 2026    |                 |
-| CA#1B: Quiz #2                       |  04 - Aug - 2026    |                 |
+| Lab Evaluation#1                     |  16 - Jul - 2026    |                 |  
+| Mid-Term Lab                         |  14 - Aug - 2026    |                 |
+| Mid-Term Examination                 |  18 - Aug - 2026    |                 |
+| Missed Mid-Term Examination          |  05 - Oct - 2026    |                 |
+| CA#1B: Quiz #2                       |  XX - Oct - 2026    |                 |
+| Lab Evaluation#2                     |  08 - Oct - 2026    |                 |
+| End Semester Lab                     |  17 - Oct - 2026 (FN)  |                 |
+| Supplementary Quiz                   |  17 - Oct - 2026 (AN)  |                 |
+| Supplementary Lab Examination        |  22 - Oct - 2026    |                 |
+| End Semester Examination             |  23 - Oct - 2026    |                 |
 
 #### Lab Schedule 
 
@@ -53,6 +61,7 @@
 | LH4-6        | 02nd July 2026   | Docker Exercise - Flask and File Sharing App |
 | LH7-9        | 09th July 2026   | Docker Exercise - Compose with Volume |
 | LH10-12      | 06th July 2026   | Docker Lab Verification and Viva |
+
 
 ### Text Book
 1. Andrew S. Tannenbaum and Maarten van Steen, **Distributed Systems: Principles and Paradigms**, Third Edition, Prentice Hall, 2017.
