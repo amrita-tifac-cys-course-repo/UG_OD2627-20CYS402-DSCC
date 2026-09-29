@@ -46,7 +46,7 @@
 | Mid-Term Lab                         |  14 - Aug - 2026    |                 |
 | Mid-Term Examination                 |  18 - Aug - 2026    |                 |
 | Missed Mid-Term Examination          |  05 - Oct - 2026    |                 |
-| CA#1B: Quiz #2                       |  XX - Oct - 2026    |                 |
+| CA#1B: Quiz #2                       |  07 - Oct - 2026    |                 |
 | Lab Evaluation#2                     |  08 - Oct - 2026    |                 |
 | End Semester Lab                     |  17 - Oct - 2026 (FN)  |                 |
 | Supplementary Quiz                   |  17 - Oct - 2026 (AN)  |                 |
