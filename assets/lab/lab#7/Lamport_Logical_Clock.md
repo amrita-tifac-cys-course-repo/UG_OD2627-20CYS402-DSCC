@@ -1,7 +1,7 @@
 # 20CYS402 - Distributed Systems and Cloud Computing
 ![](https://img.shields.io/badge/Batch-23CYS-gold) ![](https://img.shields.io/badge/UG-blue) ![](https://img.shields.io/badge/Subject-DSCC-blue) <br/>
 
-## Lab#7 - Lamport Logical Clock
+## Lab#7A - Lamport Logical Clock
 ![](https://img.shields.io/badge/Date-08_October-blue)
 
 ### 1. Objective
