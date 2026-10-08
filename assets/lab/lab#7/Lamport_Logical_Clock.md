@@ -540,40 +540,12 @@ At minimum, the implementation must clearly demonstrate that a timestamp is tran
 max(local_clock, received_timestamp) + 1
 ```
 
-8. What does the notation
+8. Can two different events have the same Lamport timestamp?
 
-\[
-a \rightarrow b
-\]
+9. Can Lamport clocks identify concurrent events?
 
-represent?
+10. What are the limitations of Lamport Logical Clocks?
 
-9. Explain:
+11. How does a Vector Clock improve upon Lamport Logical Clocks?
 
-\[
-a \rightarrow b \Rightarrow L(a)<L(b)
-\]
-
-10. If:
-
-\[
-L(a)<L(b)
-\]
-
-can we always conclude that:
-
-\[
-a \rightarrow b
-\]
-
-Explain.
-
-11. Can two different events have the same Lamport timestamp?
-
-12. Can Lamport clocks identify concurrent events?
-
-13. What are the limitations of Lamport Logical Clocks?
-
-14. How does a Vector Clock improve upon Lamport Logical Clocks?
-
-15. What is the difference between a physical clock, Lamport Logical Clock, and Vector Clock?
+12. What is the difference between a physical clock, Lamport Logical Clock, and Vector Clock?
