@@ -274,6 +274,10 @@ Execute the following sequence:
 9. P3 receives the message from P1.
 ```
 
+<p align="center">
+  <img src="../../images/LLC_Process.png" width=880 />
+</p>
+
 The timestamps must be **calculated by your program**.
 
 Do not hard-code the expected timestamps.
