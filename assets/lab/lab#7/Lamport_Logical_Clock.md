@@ -397,7 +397,7 @@ P2         E5       SEND           5
 P1         E6       LOCAL          3
 P1         E7       SEND           4
 P3         E8       RECEIVE        6
-P3         E9       RECEIVE        5
+P3         E9       RECEIVE        7
 ----------------------------------------------------
 ```
 
