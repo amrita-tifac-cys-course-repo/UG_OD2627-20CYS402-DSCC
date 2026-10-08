@@ -1,7 +1,7 @@
 # 20CYS402 - Distributed Systems and Cloud Computing
 ![](https://img.shields.io/badge/Batch-23CYS-gold) ![](https://img.shields.io/badge/UG-blue) ![](https://img.shields.io/badge/Subject-DSCC-blue) <br/>
 
-## Lab#8 - Vector Clock
+## Lab#8B - Vector Clock
 ![](https://img.shields.io/badge/Date-October-blue)
 
 ### 1. Objective
@@ -300,7 +300,7 @@ VC_i[i] = VC_i[i] + 1
 
 ### Part D — Event Types
 
-#### 10. Required Event Types
+#### 9. Required Event Types
 
 The implementation must support at least:
 
@@ -322,7 +322,7 @@ RECEIVE(P2, P1)
 
 ### Part E — Exercise Scenario
 
-#### 11. Implement the Following Event Sequence
+#### 10. Implement the Following Event Sequence
 
 Use three processes:
 
@@ -369,7 +369,7 @@ Do not hard-code the expected timestamps.
 
 ### Part E — Expected Vector Clock Calculation
 
-#### 13. Calculate the Vector Timestamps
+#### 11. Calculate the Vector Timestamps
 
 The following values illustrate the expected progression.
 
@@ -509,7 +509,7 @@ P3 = [4,3,2]
 
 ### Part F — Required Output
 
-#### 14. Event Log
+#### 12. Event Log
 
 The program should produce a clear event log similar to:
 
@@ -537,7 +537,7 @@ Your program must calculate the vector timestamps dynamically.
 
 ### Part G — Vector Timestamp Comparison
 
-#### 15. Comparing Two Vector Clocks
+#### 13. Comparing Two Vector Clocks
 
 Given two vector timestamps:
 
@@ -587,7 +587,7 @@ and the event associated with `V1` happened before the event associated with `V2
 
 ### Part H — Causal Ordering
 
-#### 16. Determine Causal Relationship
+#### 14. Determine Causal Relationship
 
 Vector clocks can be used to determine whether one event causally happened before another.
 
@@ -624,7 +624,7 @@ for at least one `j`.
 
 ### Part I — Concurrent Events
 
-#### 17. Detect Concurrent Events
+#### 15. Detect Concurrent Events
 
 Two events are concurrent when neither vector timestamp is less than the other.
 
@@ -677,7 +677,7 @@ Your implementation must detect at least **one pair of concurrent events**.
 
 ### Part J — Required Comparison Function
 
-#### 18. Implement Vector Clock Comparison
+#### 16. Implement Vector Clock Comparison
 
 Implement a function equivalent to:
 
@@ -724,7 +724,7 @@ where:
 
 # Part M — Required Experiment
 
-#### 19. Demonstrate the Following
+#### 17. Demonstrate the Following
 
 Your implementation must demonstrate:
 
@@ -786,7 +786,7 @@ A || B
 
 ### Part K — Message Representation
 
-#### 20. Message Structure
+#### 18. Message Structure
 
 Every message should contain at least:
 
@@ -819,7 +819,7 @@ Record
 
 ### Part L — Required Operations
 
-#### 21. Local Event
+#### 19. Local Event
 
 Implement an operation equivalent to:
 
@@ -836,7 +836,7 @@ It should:
 
 ---
 
-### 22. Send Message
+### 20. Send Message
 
 Implement an operation equivalent to:
 
@@ -853,7 +853,7 @@ It should:
 
 ---
 
-### 23. Receive Message
+### 21. Receive Message
 
 Implement an operation equivalent to:
 
@@ -871,7 +871,7 @@ It should:
 
 ---
 
-### 24. Vector Comparison
+### 22. Vector Comparison
 
 Implement an operation equivalent to:
 
@@ -893,7 +893,7 @@ V1 and V2 represent the same timestamp
 
 ### Part M — Programming Language
 
-#### 25. Language Choice
+#### 23. Language Choice
 
 Students may use **any programming language of their choice**.
 
@@ -918,7 +918,7 @@ The implementation must correctly demonstrate the Vector Clock algorithm.
 
 ### Part M — Communication / Simulation
 
-#### 26. Process Communication
+#### 24. Process Communication
 
 Since this experiment does not require Docker, students may simulate communication using any suitable mechanism.
 
@@ -939,7 +939,7 @@ At minimum, the implementation must clearly demonstrate that the vector timestam
 
 ### Part N — Required Results
 
-#### 27. Results Table
+#### 25. Results Table
 
 Submit a table similar to:
 
@@ -960,7 +960,7 @@ Fill in the vector timestamps obtained from your implementation.
 
 ### Part O — Causal Relationship Table
 
-#### 28. Analyze Event Relationships
+#### 26. Analyze Event Relationships
 
 Identify at least five pairs of events and classify their relationship.
 
@@ -984,7 +984,7 @@ A || B
 
 ### Part P — Questions to Answer
 
-#### 29. Lab Questions
+#### 27. Lab Questions
 
 1. What problem does a Vector Clock solve?
 
@@ -1019,7 +1019,7 @@ A || B
 
 ### Part Q — Comparison with Lamport Clock
 
-#### 30. Compare Lamport and Vector Clocks
+#### 28. Compare Lamport and Vector Clocks
 
 Complete the following table:
 
