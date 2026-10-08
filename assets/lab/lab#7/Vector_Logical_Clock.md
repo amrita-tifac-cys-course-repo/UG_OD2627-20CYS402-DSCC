@@ -362,9 +362,14 @@ Execute the following sequence:
 9. P3 receives M3 from P1.
 ```
 
+<p align="center">
+  <img src="../../images/VLC_Process.png" width=880 />
+</p>
+
 The vector timestamps must be **calculated by your program**.
 
 Do not hard-code the expected timestamps.
+
 
 
 ### Part E — Expected Vector Clock Calculation
