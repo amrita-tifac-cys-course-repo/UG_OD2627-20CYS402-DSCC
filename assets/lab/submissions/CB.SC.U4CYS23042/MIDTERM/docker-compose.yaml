@@ -1,8 +1,0 @@
-services:
-  webauth:
-    image: mt-webauth
-    container_name: mt-webauth-container
-    ports:
-      - "8080:80"
-    volumes:
-      - ./web:/var/www/html

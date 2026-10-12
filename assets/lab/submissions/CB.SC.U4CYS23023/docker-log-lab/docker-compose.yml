@@ -1,7 +1,0 @@
-
-services:
-  logger:
-    build: .
-    image: loggendockerimage:latest
-    volumes:
-      - ./data:/data

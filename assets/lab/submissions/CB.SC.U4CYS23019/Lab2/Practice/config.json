@@ -1,6 +1,0 @@
-{
-  "app_name": "File Sharing Service",
-  "environment": "production",
-  "port": 8000,
-  "upload_directory": "/app/uploads"
-}

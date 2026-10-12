@@ -1,6 +1,0 @@
-{
-    "app_name": "Internal File Sharing Service",
-    "version": "1.0",
-    "max_upload_size_mb": 25,
-    "allowed_extensions": ["txt", "pdf", "docx", "csv", "png", "jpg"]
-}
