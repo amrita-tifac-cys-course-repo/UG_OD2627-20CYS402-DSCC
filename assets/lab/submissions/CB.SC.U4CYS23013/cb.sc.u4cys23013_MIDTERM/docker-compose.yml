@@ -1,8 +1,0 @@
-services:
-  webauth:
-    build: .
-    image: mt-webauth
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./web:/midterm-exam

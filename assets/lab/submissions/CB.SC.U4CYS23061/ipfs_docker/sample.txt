@@ -1,3 +1,0 @@
-This file was uploaded to IPFS from inside a Docker container.
-Author: Sathwik (phantomone)
-Purpose: Docker + IPFS lab exercise.
