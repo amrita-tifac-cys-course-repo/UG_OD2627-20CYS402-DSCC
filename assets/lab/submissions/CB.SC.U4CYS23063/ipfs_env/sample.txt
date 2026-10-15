@@ -1,0 +1,2 @@
+Hello from IPFS running inside Docker!
+This file will be uploaded automatically.
