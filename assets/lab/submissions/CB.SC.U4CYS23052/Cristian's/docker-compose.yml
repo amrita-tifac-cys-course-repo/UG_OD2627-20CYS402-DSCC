@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  master:
+    build: ./master
+    container_name: clock-master
+    networks:
+      - clock-net
+    environment:
+      - MASTER_DELAY=0.0
+    ports:
+      - "5005:5000"
+
+  client1:
+    build: ./client
+    container_name: clock-client1
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-1
+      - CLOCK_OFFSET=-8
+      - MASTER_HOST=master
+    depends_on:
+      - master
+
+  client2:
+    build: ./client
+    container_name: clock-client2
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-2
+      - CLOCK_OFFSET=6
+      - MASTER_HOST=master
+    depends_on:
+      - master
+
+  client3:
+    build: ./client
+    container_name: clock-client3
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-3
+      - CLOCK_OFFSET=-4
+      - MASTER_HOST=master
+    depends_on:
+      - master
+
+  client4:
+    build: ./client
+    container_name: clock-client4
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-4
+      - CLOCK_OFFSET=10
+      - MASTER_HOST=master
+    depends_on:
+      - master
+
+networks:
+  clock-net:
+    driver: bridge
