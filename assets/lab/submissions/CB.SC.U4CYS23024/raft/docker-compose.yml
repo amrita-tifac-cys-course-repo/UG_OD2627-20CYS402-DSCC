@@ -1,0 +1,54 @@
+x-node: &node
+  build: .
+  image: raft-demo:latest
+  command: ["python", "raft_node.py"]
+
+services:
+  node1:
+    <<: *node
+    container_name: node1
+    environment:
+      NODE_ID: node1
+      PEERS: node2:8000,node3:8000,node4:8000,node5:8000
+    ports: ["8001:8000"]
+
+  node2:
+    <<: *node
+    container_name: node2
+    environment:
+      NODE_ID: node2
+      PEERS: node1:8000,node3:8000,node4:8000,node5:8000
+    ports: ["8002:8000"]
+
+  node3:
+    <<: *node
+    container_name: node3
+    environment:
+      NODE_ID: node3
+      PEERS: node1:8000,node2:8000,node4:8000,node5:8000
+    ports: ["8003:8000"]
+
+  node4:
+    <<: *node
+    container_name: node4
+    environment:
+      NODE_ID: node4
+      PEERS: node1:8000,node2:8000,node3:8000,node5:8000
+    ports: ["8004:8000"]
+
+  node5:
+    <<: *node
+    container_name: node5
+    environment:
+      NODE_ID: node5
+      PEERS: node1:8000,node2:8000,node3:8000,node4:8000
+    ports: ["8005:8000"]
+
+  # Not started by `docker compose up`; use `docker compose run --rm client ...`
+  client:
+    <<: *node
+    command: ["status"]
+    entrypoint: ["python", "client.py"]
+    profiles: ["tools"]
+    environment:
+      NODES: node1:8000,node2:8000,node3:8000,node4:8000,node5:8000

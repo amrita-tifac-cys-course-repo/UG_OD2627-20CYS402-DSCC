@@ -1,0 +1,59 @@
+# Offsets default to the lab's suggested values and can be overridden with
+# an env file, e.g.  docker compose --env-file experiments/exp1.env up --build
+services:
+  clock-master:
+    build: ./master
+    container_name: clock-master
+    depends_on:
+      - clock-client1
+      - clock-client2
+      - clock-client3
+      - clock-client4
+    environment:
+      CLOCK_OFFSET: "${MASTER_OFFSET:-0}"
+      CLIENTS: "clock-client1:5000,clock-client2:5000,clock-client3:5000,clock-client4:5000"
+      OUTLIER_THRESHOLD: "${OUTLIER_THRESHOLD:-0}"
+      EXPERIMENT: "${EXPERIMENT:-default}"
+    networks:
+      - clock-net
+
+  clock-client1:
+    build: ./client
+    container_name: clock-client1
+    environment:
+      CLIENT_ID: client1
+      CLOCK_OFFSET: "${CLIENT1_OFFSET:--8}"
+    networks:
+      - clock-net
+
+  clock-client2:
+    build: ./client
+    container_name: clock-client2
+    environment:
+      CLIENT_ID: client2
+      CLOCK_OFFSET: "${CLIENT2_OFFSET:-6}"
+    networks:
+      - clock-net
+
+  clock-client3:
+    build: ./client
+    container_name: clock-client3
+    environment:
+      CLIENT_ID: client3
+      CLOCK_OFFSET: "${CLIENT3_OFFSET:--4}"
+    networks:
+      - clock-net
+
+  clock-client4:
+    build: ./client
+    container_name: clock-client4
+    environment:
+      CLIENT_ID: client4
+      CLOCK_OFFSET: "${CLIENT4_OFFSET:-10}"
+    networks:
+      - clock-net
+
+# Created beforehand with: docker network create clock-net
+networks:
+  clock-net:
+    external: true
