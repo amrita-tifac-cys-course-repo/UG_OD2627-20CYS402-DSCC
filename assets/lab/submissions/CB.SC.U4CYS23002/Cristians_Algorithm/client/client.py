@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 
-SERVER_HOST = "clock-master"
+SERVER_HOST = "clock-server"
 SERVER_PORT = 5000
 
 CLIENT_ID = os.getenv("CLIENT_ID", "Client")
@@ -23,29 +23,21 @@ def format_time(timestamp):
 initial_clock = logical_time()
 
 T1 = logical_time()
-#time at which the req is sent
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((SERVER_HOST, SERVER_PORT))
 
-# Receives time from server as data
 data = client.recv(1024)
 
-#time at which client receives the response
 T2 = logical_time()
 
 client.close()
 
-
-#The time that server has sent
 Ts = float(data.decode())
 
-
-#christian's algo
 RTT = T2 - T1
 delay = RTT / 2
 Tc = Ts + delay
-
 
 initial_datetime = format_time(initial_clock)
 T1_datetime = format_time(T1)
