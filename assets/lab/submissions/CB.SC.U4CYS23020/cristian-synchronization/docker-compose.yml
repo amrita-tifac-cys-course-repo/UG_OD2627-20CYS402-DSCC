@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  clock-master:
+    build: ./master
+    container_name: clock-master
+    networks:
+      - clock-net
+    environment:
+      - ARTIFICIAL_DELAY=${ARTIFICIAL_DELAY:-0}
+
+  clock-client1:
+    build: ./client
+    container_name: clock-client1
+    depends_on:
+      - clock-master
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-1
+      - CLOCK_OFFSET=-8
+
+  clock-client2:
+    build: ./client
+    container_name: clock-client2
+    depends_on:
+      - clock-master
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-2
+      - CLOCK_OFFSET=6
+
+  clock-client3:
+    build: ./client
+    container_name: clock-client3
+    depends_on:
+      - clock-master
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-3
+      - CLOCK_OFFSET=-4
+
+  clock-client4:
+    build: ./client
+    container_name: clock-client4
+    depends_on:
+      - clock-master
+    networks:
+      - clock-net
+    environment:
+      - CLIENT_ID=Client-4
+      - CLOCK_OFFSET=10
+
+networks:
+  clock-net:
+    name: clock-net-cristian
+    driver: bridge
