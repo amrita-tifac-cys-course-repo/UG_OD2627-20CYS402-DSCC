@@ -1,9 +1,9 @@
 services:
 
-  clock-master:
+  clock-server:
     build:
-      context: ./master
-    container_name: clock-master
+      context: ./server
+    container_name: clock-server
     environment:
       CLOCK_OFFSET: "0"
       RESPONSE_DELAY: "0"
@@ -18,7 +18,7 @@ services:
       CLIENT_ID: "Client-1"
       CLOCK_OFFSET: "-8"
     depends_on:
-      - clock-master
+      - clock-server
     networks:
       - clock-net
 
@@ -30,7 +30,7 @@ services:
       CLIENT_ID: "Client-2"
       CLOCK_OFFSET: "6"
     depends_on:
-      - clock-master
+      - clock-server
     networks:
       - clock-net
 
@@ -42,7 +42,7 @@ services:
       CLIENT_ID: "Client-3"
       CLOCK_OFFSET: "-4"
     depends_on:
-      - clock-master
+      - clock-server
     networks:
       - clock-net
 
@@ -54,7 +54,7 @@ services:
       CLIENT_ID: "Client-4"
       CLOCK_OFFSET: "10"
     depends_on:
-      - clock-master
+      - clock-server
     networks:
       - clock-net
 
