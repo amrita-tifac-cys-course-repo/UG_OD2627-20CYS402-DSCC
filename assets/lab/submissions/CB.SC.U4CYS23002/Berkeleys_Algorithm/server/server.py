@@ -1,6 +1,8 @@
 import socket
 import time
 import os
+from datetime import datetime
+
 
 HOST = "0.0.0.0"
 PORT = 5000
@@ -11,10 +13,13 @@ CLOCK_OFFSET = float(os.getenv("CLOCK_OFFSET", "0"))
 def get_time():
     return time.time() + CLOCK_OFFSET
 
-
+def format_time(timestamp):
+    return datetime.fromtimestamp(timestamp).strftime(
+        "%Y-%m-%d %H:%M:%S.%f"
+    )
+    
 def main():
 
-    # Create server
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(
         socket.SOL_SOCKET,
@@ -30,7 +35,6 @@ def main():
 
     clients = []
 
-    # Wait for 4 clients
     for i in range(4):
 
         conn, address = server.accept()
@@ -51,7 +55,7 @@ def main():
 
             print(
                 f"[SERVER] Received time from {address}: "
-                f"{client_time:.3f}"
+                f"{format_time(client_time)}"
             )
 
     print("\n[SERVER] All 4 clients connected.")
@@ -60,7 +64,7 @@ def main():
 
     print(
         f"[SERVER] Current time: "
-        f"{server_time:.3f}"
+        f"{format_time(server_time)}"
     )
 
     all_times = [server_time]
@@ -69,25 +73,23 @@ def main():
 
         print(
             f"[SERVER] {address} -> "
-            f"{client_time:.3f}"
+            f"{format_time(client_time)}"
         )
 
         all_times.append(client_time)
 
-    # Calculate average time
     tx = sum(all_times) / len(all_times)
 
     print("\n[SERVER] Calculated average Tx:")
-    print(f"[SERVER] Tx = {tx:.3f}")
+    print(f"[SERVER] Tx = {format_time(tx)}")
 
     server_delay = tx - server_time
 
     print(
         f"[SERVER] Server correction = "
-        f"{server_delay:+.3f} seconds"
+        f"{server_delay} seconds"
     )
 
-    # Send correction to each client
     for conn, address, client_time in clients:
 
         delay = tx - client_time
@@ -97,9 +99,8 @@ def main():
             f"{delay:+.3f} seconds"
         )
 
-        conn.sendall(
-            f"{delay:.3f}".encode()
-        )
+        message = f"{delay:.3f},{tx:.6f}"
+        conn.sendall(message.encode())
 
         conn.close()
 
@@ -107,11 +108,10 @@ def main():
 
     print(
         f"[SERVER] New server time: "
-        f"{server_time + server_delay:.3f}"
+        f"{format_time(server_time + server_delay)}"
     )
 
     server.close()
-
 
 if __name__ == "__main__":
     main()
