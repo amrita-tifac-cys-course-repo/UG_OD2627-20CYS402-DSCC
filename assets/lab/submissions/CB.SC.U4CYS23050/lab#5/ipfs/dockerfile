@@ -1,0 +1,36 @@
+# Base image: lightweight Ubuntu Linux environment
+FROM ubuntu:22.04
+
+# Avoid interactive prompts during package installs
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies needed to download and run IPFS
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends wget ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# IPFS (Kubo) version to install
+ENV IPFS_VERSION=v0.29.0
+
+# Download, extract, and install IPFS (Kubo) binary
+RUN wget https://dist.ipfs.tech/kubo/${IPFS_VERSION}/kubo_${IPFS_VERSION}_linux-amd64.tar.gz && \
+    tar -xvzf kubo_${IPFS_VERSION}_linux-amd64.tar.gz && \
+    cd kubo && bash install.sh && \
+    cd .. && rm -rf kubo kubo_${IPFS_VERSION}_linux-amd64.tar.gz
+
+# Confirm IPFS installed correctly
+RUN ipfs --version
+
+WORKDIR /app
+
+# Sample file that will be uploaded to IPFS
+COPY sample.txt .
+
+# Script that initializes IPFS, uploads the file, and prints the hash
+COPY upload.sh /upload.sh
+RUN chmod +x /upload.sh
+
+# Standard IPFS ports (swarm, API, gateway) - exposed for future use
+EXPOSE 4001 5001 8080
+
+ENTRYPOINT ["/upload.sh"]

@@ -1,0 +1,2 @@
+with open("logs.txt", "a") as file:
+    file.write(f"Logged time: {current_time}\n")

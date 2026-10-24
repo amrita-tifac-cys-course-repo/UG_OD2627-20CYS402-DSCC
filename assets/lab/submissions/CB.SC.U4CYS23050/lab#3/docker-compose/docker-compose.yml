@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: portimage:latest
+
+    ports:
+      - "8083:80"
+
+    volumes:
+      - ./website:/usr/share/nginx/html
+      - nginx_logs:/var/log/nginx
+
+volumes:
+  nginx_logs:
